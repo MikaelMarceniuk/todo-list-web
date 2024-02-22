@@ -8,7 +8,9 @@ export type Todo = {
 
 interface ITodoContext {
   todos: Todo[]
-  createTodo: (todoTitle: string) => void
+  createTodo: (title: string) => void
+  toggleDone: (id: number) => void
+  deleteTodo: (id: number) => void
 }
 
 export const TodoContext = createContext<ITodoContext>({} as ITodoContext)
@@ -29,8 +31,24 @@ const TodoProvider: React.FC<Props> = ({ children }) => {
     ])
   }
 
+  const toggleDone = (id: number) => {
+    const todoIndex = todos.findIndex(t => t.id == id)
+    const newTodos = [...todos]
+    newTodos[todoIndex].isDone = !newTodos[todoIndex].isDone
+
+    setTodos(newTodos)
+  }
+
+  const deleteTodo = (id: number) => {
+    const todoIndex = todos.findIndex(t => t.id == id)
+    const newTodos = [...todos]
+    newTodos.splice(todoIndex, 1)
+
+    setTodos(newTodos)
+  }
+
   return (
-    <TodoContext.Provider value={{ todos, createTodo }}>
+    <TodoContext.Provider value={{ todos, createTodo, toggleDone, deleteTodo }}>
       {children}
     </TodoContext.Provider>
   )

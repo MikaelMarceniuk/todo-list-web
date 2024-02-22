@@ -1,15 +1,17 @@
 import styles from './todoListItem.module.css'
-import { Todo } from "../context/todoContext"
+import { Todo, useTodoContext } from "../context/todoContext"
 import { Trash } from '@phosphor-icons/react'
 
 type Props = Todo
 
 const TodoListItem: React.FC<Props> = ({ id, title, isDone }) => {
+  const { toggleDone, deleteTodo } = useTodoContext()
+
   return (
     <div className={styles.wrapper}>
-      <input type='checkbox' />
+      <input type='checkbox' onChange={() => toggleDone(id)} />
       <span className={isDone ? styles.checked : ''}>{title}</span>
-      <Trash />
+      <Trash onClick={() => deleteTodo(id)} />
     </div>
   )
 }
