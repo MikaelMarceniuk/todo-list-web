@@ -1,0 +1,35 @@
+.wrapper {
+  height: 4.5rem;
+  margin-top: 1rem;
+  padding: 1rem;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  background-color: var(--gray-500);
+  color: var(--gray-100);
+
+  border-radius: 8px;
+}
+
+.wrapper>input {
+  margin-top: 5px;
+}
+
+.wrapper>span {
+  width: 90%;
+  height: 100%;
+
+  flex: 1;
+}
+
+.wrapper>svg {
+  height: 100%;
+  color: var(--gray-300);
+}
+
+.checked {
+  height: 100%;
+  text-decoration: dashed;
+}

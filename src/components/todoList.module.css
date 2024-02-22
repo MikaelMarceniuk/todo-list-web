@@ -1,0 +1,34 @@
+.wrapper {
+  width: 100%;
+}
+
+.wrapper>header {
+  margin-bottom: 1.5rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: var(--purple);
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.wrapper>header>span {
+  cursor: pointer;
+}
+
+.divider {
+  width: 100%;
+  border: 1px solid var(--gray-500);
+}
+
+.emptyListAdvice {
+  margin-top: 4rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: var(--gray-300);
+  font-size: 1rem;
+}
